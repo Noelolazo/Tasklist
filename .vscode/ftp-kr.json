@@ -1,0 +1,16 @@
+{
+    "host": "192.168.115.250",
+    "username": "taskm8",
+    "password": "taskm8",
+    "remotePath": "/var/www",
+    "protocol": "sftp",
+    "port": 0,
+    "fileNameEncoding": "utf8",
+    "autoUpload": false,
+    "autoDelete": false,
+    "autoDownload": false,
+    "ignore": [
+        ".git",
+        "/.vscode"
+    ]
+}

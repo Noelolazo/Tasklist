@@ -1,0 +1,148 @@
+{
+  "sftp://taskm8@192.168.115.250": {
+    ".cache": {},
+    ".bash_logout": {
+      "type": "-",
+      "size": 220,
+      "lmtime": 0,
+      "modified": false
+    },
+    ".profile": {
+      "type": "-",
+      "size": 807,
+      "lmtime": 0,
+      "modified": false
+    },
+    ".bashrc": {
+      "type": "-",
+      "size": 3771,
+      "lmtime": 0,
+      "modified": false
+    },
+    ".ssh": {},
+    ".sudo_as_admin_successful": {
+      "type": "-",
+      "size": 0,
+      "lmtime": 0,
+      "modified": false
+    },
+    "home": {
+      "taskm8": {
+        ".cache": {
+          "motd.legal-displayed": {
+            "type": "-",
+            "size": 0,
+            "lmtime": 0,
+            "modified": false
+          }
+        },
+        ".bash_logout": {
+          "type": "-",
+          "size": 220,
+          "lmtime": 0,
+          "modified": false
+        },
+        ".profile": {
+          "type": "-",
+          "size": 807,
+          "lmtime": 0,
+          "modified": false
+        },
+        ".bashrc": {
+          "type": "-",
+          "size": 3771,
+          "lmtime": 0,
+          "modified": false
+        },
+        ".ssh": {
+          "authorized_keys": {
+            "type": "-",
+            "size": 0,
+            "lmtime": 0,
+            "modified": false
+          }
+        },
+        ".sudo_as_admin_successful": {
+          "type": "-",
+          "size": 0,
+          "lmtime": 0,
+          "modified": false
+        }
+      }
+    },
+    "var": {
+      "www": {
+        "html": {
+          "index.html": {
+            "type": "-",
+            "size": 10671,
+            "lmtime": 0,
+            "modified": false
+          },
+          "pages": {},
+          "CrearTarea.html": {
+            "type": "-",
+            "size": 3175,
+            "lmtime": 0,
+            "modified": false
+          },
+          "prueba.php": {
+            "type": "-",
+            "size": 635,
+            "lmtime": 0,
+            "modified": false
+          },
+          "com": {
+            "utils": {
+              "MORE": {},
+              "dbo": {
+                "daoCommand.php": {
+                  "type": "-",
+                  "size": 715,
+                  "lmtime": 1744017099960.256,
+                  "modified": false
+                },
+                "daoConnection.php": {
+                  "type": "-",
+                  "size": 795,
+                  "lmtime": 1744016551454.9294,
+                  "modified": false
+                }
+              }
+            },
+            "taskmanager": {
+              "list": {},
+              "task": {},
+              "tasklist": {}
+            }
+          },
+          "main.php": {
+            "type": "-",
+            "size": 3809,
+            "lmtime": 0,
+            "modified": false
+          },
+          "pruebasDB.php": {
+            "type": "-",
+            "size": 429,
+            "lmtime": 1744019628937.6362,
+            "modified": false
+          },
+          "info.php": {
+            "type": "-",
+            "size": 22,
+            "lmtime": 0,
+            "modified": false
+          },
+          "main_bk.php": {
+            "type": "-",
+            "size": 3219,
+            "lmtime": 0,
+            "modified": false
+          }
+        }
+      }
+    }
+  },
+  "$version": 1
+}
