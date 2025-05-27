@@ -1,0 +1,441 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --dark: #6172a7;
+    --medium: #5f8ae6;
+    --light: #85a5e9;
+}
+
+
+/* -------------------------- SIGN IN (default css for footer, header, buttons, etc) ---------------------------------------------------------------------------------------------------------------------------------*/
+.header {
+    display: flex;
+    background-color: var(--dark);
+    height: 10%;
+    width: 100%;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.imageDiv {
+    border-style: solid;
+    border-width: 2px;
+    justify-items: center;
+    align-items: center;
+    height: 80%;
+    width: 15%;
+    margin-left: -22%;
+}
+
+.mercantecLogo {
+    cursor: pointer;
+    height: 100%;
+    width: 100%;
+}
+
+.loginInfoButtonsDiv {
+    display: flex;
+    border-width: 2px;
+    align-items: center;
+    justify-content: space-around;
+    height: 90%;
+    width: 15%;
+    margin-right: -22%;
+}
+
+.loginDiv {
+    height: 80%;
+    width: 40%;
+    border-radius: 8px;
+}
+
+.loginButton {
+    height: 100%;
+    width: 100%;
+    border-radius: 40px;
+    border-width: 4px;
+    font-size: larger;
+    background-color: var(--light);
+    color: white;
+    border-color: var(--medium);
+}
+
+.loginButton:hover {
+    background-color: var(--light);
+    color: white;
+    font-weight: bolder;
+    font-size: x-large;
+}
+
+.infoDiv {
+    height: 80%;
+    width: 35%;
+}
+
+.infoButton {
+    height: 100%;
+    width: 100%;
+    border-radius: 40px;
+    border-width: 4px;
+    font-size: larger;
+    background-color: var(--light);
+    border-color: var(--medium);
+    color: white;
+}
+
+.infoButton:hover {
+    background-color: var(--light);
+    color: white;
+    font-weight: bolder;
+    font-size: x-large;
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+}
+
+.signIn-container {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    background-color: var(--light);
+    margin-top: 4%;
+    margin-bottom: 2%;
+    width: 570px;
+    height: 450px;
+    padding: 3%;
+    border-radius: 12px;
+}
+
+.signButtonDiv {
+    align-items: center;
+    display: flex;
+    justify-self: center;
+    height: 15%;
+    width: 22%;
+    border-radius: 12px;
+    background-color: var(--medium);
+    border-style: solid;
+    border-color: var(--dark);
+}
+
+.buttonSign {
+    font-size: larger;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    background-color: var(--medium);
+    font-weight: normal;
+    border-radius: 12px;
+    border-width: 0;
+    color: black;
+}
+
+.buttonSign:hover {
+    background-color: var(--light);
+    color: white;
+    font-weight: bold;
+}
+
+.correo_usuario-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.input-container {
+    display: flex;
+    padding: 1%;
+}
+
+.textboxSignIn {
+    display: flex;
+    margin-bottom: 5%;
+    height: 13%;
+}
+
+footer {
+    align-content: center;
+    height: 5%;
+    width: 100%;
+    text-align: center;
+    background-color: var(--light);
+    color: white;
+    font-size: larger;
+    position: fixed;
+    bottom: 0px;
+    z-index: 4;
+}
+
+/* ---------- additions to the HTML, for LOGIN HTML --------------------------------------------------------------------------*/
+
+.emailPasswordDiv {
+    display: flex;
+    font-family: Arial, sans-serif;
+    flex-direction: column;
+    justify-self: center;
+    background-color: var(--light);
+    margin-top: 8%;
+    min-width: 520px;
+    min-height: 320px;
+    padding: 3%;
+    border-radius: 12px;
+}
+
+.logIn-container {
+    display: flex;
+    font-family: Arial, sans-serif;
+    flex-direction: column;
+    justify-self: center;
+    background-color: var(--light);
+    margin-top: 8%;
+    min-width: 520px;
+    min-height: 320px;
+    padding: 3%;
+    border-radius: 12px;
+}
+
+.emailDiv {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.textboxLogIn {
+    display: row;
+    margin-bottom: 5%;
+    min-height: 36px;
+    max-width: 90%;
+}
+
+.passwordResetDiv {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    max-width: 90%;
+}
+
+.logButtonDiv {
+    align-items: center;
+    display: flex;
+    justify-self: center;
+    align-self: center;
+    min-height: 15%;
+    width: 22%;
+    border-radius: 12px;
+    background-color: var(--medium);
+    border-style: solid;
+    border-color: var(--dark);
+}
+
+.buttonLog {
+    font-size: larger;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    background-color: var(--medium);
+    font-weight: normal;
+    border-radius: 12px;
+    border-width: 0;
+    color: black;
+}
+
+.buttonLog:hover {
+    background-color: var(--light);
+    color: white;
+    font-weight: bold;
+}
+
+/* ---------- additions to HTML for PASSWORD RESET HTML*/
+.resetPasswordDiv {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    background-color: var(--light);
+    margin-top: 8%;
+    margin-bottom: 2%;
+    width: auto;
+    height: auto;
+    padding: 3%;
+    border-radius: 12px;
+}
+
+.passwordResetTextbox {
+    min-height: 36px;
+    margin-bottom: 5%;
+}
+
+.resetButtonDiv {
+    align-items: center;
+    display: flex;
+    justify-self: center;
+    align-self: center;
+    min-height: 15%;
+    min-width: 250px;
+    border-radius: 12px;
+    background-color: var(--medium);
+    border-style: solid;
+    border-color: var(--dark);
+}
+
+.resetButton {
+    font-size: larger;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    background-color: var(--medium);
+    font-weight: normal;
+    border-radius: 12px;
+    border-width: 0;
+    color: black;
+}
+
+.resetButton:hover {
+    background-color: var(--light);
+    color: white;
+    font-weight: bold;
+}
+
+/* ---------- additions to HTML for INFO HTML*/
+
+.titleAndInfo {
+    display: flex;
+    justify-self: flex-start;
+    align-self: center;
+    align-items: center;
+    justify-content: center;
+    font-size: xx-large;
+    min-height: 6%;
+    min-width: 100%;
+    margin-bottom: 5px;
+    background-color: var(--medium);
+    border-style: solid;
+    border-color: var(--dark);
+    margin-top: 2%;
+    margin-bottom: 40px;
+}
+
+.infoMainDiv 
+{
+    display: flex;
+    justify-self: center;
+    height: 50vh;
+    width: 55vw;
+    margin-top: 60px;
+    margin-bottom: 5px;
+}
+
+.leftDiv {
+    display: flex;
+    justify-self: center;
+    height: 100%;
+    min-width: 40%;
+    background-color: var(--medium);
+}
+
+.twoElementsDiv {
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    height: 100%;
+    min-width: 60%;
+    justify-content: space-between;
+}
+
+.upperLeftDiv {
+    display: flex;
+    justify-self: center;
+    height: 55%;
+    min-width: 100%;
+    background-color: var(--medium);
+}
+
+.lowerRightDiv 
+{
+    display: flex;
+    align-self: self-end;
+    height: 40%;
+    width: 95%;
+    background-color: var(--dark);
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.circle
+{
+    display: flex;
+    height: 70%;
+    width: 22%;
+    margin: 2px;
+    border-radius: 100px;
+    background-color:var(--light) ;
+}
+
+/* ---------- additions to HTML for HOME HTML*/
+
+.homeButtonsDiv
+{
+    display: flex;
+    border-width: 2px;
+    align-items: center;
+    justify-content: space-around;
+    height: 90%;
+    width: 25%;
+    margin-right: -22%;
+    gap: 10px;
+}
+
+.homeContainer
+{
+    display: flex;
+    justify-content: center;
+    height: 77%;
+    width: 80%;
+    margin-top: 3%;
+}
+
+.homeMainDiv
+{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 100%;
+    width: 90%;
+}
+
+.homeRectangle
+{
+    display: flex;
+    height: 85%;
+    width: 100%;
+    background-color: var(--light);
+}
+
+.circleHome
+{
+    display: flex;
+    align-self: center;
+    right: 20px;
+    margin-bottom: 0px;
+    height: 67%;
+    width: 45%;
+    background-color: var(--dark);
+    outline: 20px solid white;
+    border-radius: 100%;
+    position: absolute;
+    z-index: 1;
+}
+.signUpDiv
+{
+    height: 80%;
+    width: 40%;
+    border-radius: 8px;
+}

@@ -1,6 +1,6 @@
 <?php
 
-class UserManager
+class clsUserManager
 {
     private $dbCommand;
 
@@ -16,7 +16,7 @@ class UserManager
             return;
         } else {
             try {
-                if (!$this->existMail($email)){
+                if (!$this->existMail($email)) {
                     $hpasswd = password_hash($password, PASSWORD_BCRYPT);
                     $phone_value = (is_null($phone_number) || $phone_number === '') ? "NULL" : intval($phone_number);
                     $sql = "INSERT INTO User (Name, Email, Password, Phone_number, Status) 
@@ -28,30 +28,6 @@ class UserManager
                     echo "Email already registered.";
                 }
 
-                // $register_code = $this->dbCommand->execute('sp_wdev_get_registercode', array($username, 0));
-
-                // URL del Web App desplegado en Google Apps Script
-                //url pau
-                // $url = 'https://script.google.com/macros/s/AKfycbzs-WaweIA_cKNVVgqqPmianx7dn4wPI7AflDvM78iUcP8pUoYNh5u5Dg7nBlkofdKu/exec';
-
-                //url Pol
-                // $url = 'https://script.google.com/macros/s/AKfycbxAQsgiFCg31C-G1MzD27GjZTo0Owa22XBoGJQzu2AT-WV8lWj76kud2WOuxLaxpH6OYw/exec';
-
-                // // Parámetros del correo electrónico
-                // $destinatario = $email;
-                // $asunto = 'Código de registro.';
-                // $cuerpo = $name . ', su código de verificación es ' . $register_code;
-                // $adjunto = null; 
-
-                // // Llamada a la función para enviar el correo
-                // $resultado = enviarCorreo($url, $destinatario, $asunto, $cuerpo, $adjunto);
-                // // $resultado2 = readAndRegisterUsers($url);
-
-                // // Establecer el encabezado para XML
-                // header('Content-Type: text/xml');
-
-                // // Mostrar la respuesta XML
-                
             } catch (PDOException $e) {
                 echo 'Error: ' . $e->getMessage();
             }
@@ -70,7 +46,7 @@ class UserManager
                     $info = mysqli_fetch_row($result);
                     // var_dump($info);
                     if (password_verify($password, $info[3])) {
-                        $user = new clsUser($info[0], $info[1], $info[2], $info[3]);
+                        $user = new clsUser($info[0], $info[1], $info[2], $info[4]);
                         echo "Login correct";
                         return $user;
                     } else {
@@ -106,6 +82,57 @@ class UserManager
         }
     }
 
+    public function recoverPassword($email)
+    {
+        try {
+            if ($this->existMail($email)) {
+                $pin = $this->generatePin($email);
+                $url = 'https://script.google.com/macros/s/AKfycbyX3ZFgqmwbPlSUIGyCk8Pkn9nmyglD8fsUG2o4yuVM62v9Ch5brS7hTdQ-0S3hm-Ag/exec';
+                $receiver = $email;
+                $affair = 'Recover password.';
+                $body = 'Your recovery code is ' . $pin;
+                $attachments = null;
+
+                $result = sendMail($url, $receiver, $affair, $body, $attachments);
+                if ($result == "1") {
+                    echo "The recover password mail has been sent.";
+                } else {
+                    echo "Something went wrong.";
+                }
+            } else {
+                echo "The email doesn't exists.";
+            }
+        } catch (PDOException $e) {
+            echo 'Error: ' . $e->getMessage();
+        }
+    }
+
+    public function recoverPasswordPin($email, $pin, $password)
+    {
+        if (empty($email) || empty($password) || empty($pin)) {
+            echo "All fields are mandatory.";
+        } else {
+            try {
+                if ($this->existMail($email)) {
+                    if ($this->correctPIN($email, $pin)) {
+                        $hnewpasswd = password_hash($password, PASSWORD_BCRYPT);
+                        // var_dump($hnewpasswd);
+                        $sql = "UPDATE User SET Password='$hnewpasswd' where Email = '$email'";
+                        $this->dbCommand->execute($sql);
+                        $this->deletePin(($pin));
+                        echo "Change of password correct.";
+                    } else {
+                        echo "Incorrect PIN.";
+                    }
+                } else {
+                    echo "Email not found (What did you do?).";
+                }
+            } catch (PDOException $e) {
+                echo 'Error: ' . $e->getMessage();
+            }
+        }
+    }
+
     public function changePassword($email, $password, $newpassword)
     {
         if (empty($email) || empty($password) || empty($newpassword)) {
@@ -116,10 +143,10 @@ class UserManager
                     $sql = "SELECT Password FROM User WHERE Email = '$email'";
                     $result = $this->dbCommand->execute($sql);
                     $hpasswd = mysqli_fetch_row($result);
-                    var_dump($hpasswd);
+                    // var_dump($hpasswd);
                     if (password_verify($password, $hpasswd[0])) {
                         $hnewpasswd = password_hash($newpassword, PASSWORD_BCRYPT);
-                        var_dump($hnewpasswd);
+                        // var_dump($hnewpasswd);
                         $sql = "UPDATE User SET Password='$hnewpasswd' where Email = '$email'";
                         $this->dbCommand->execute($sql);
                         echo "Change of password correct";
@@ -153,30 +180,9 @@ class UserManager
         }
     }
 
-    public function listusers($ssid)
-    {
-        if (empty($ssid)) {
-            echo "Todos los campos son obligatorios.";
-        } else {
-            try {
-                $result = $this->dbCommand->execute('sp_list_users2', array($ssid));
-
-                // Establecer el encabezado para XML
-                header('Content-Type: text/xml');
-
-                // Mostrar la respuesta XML
-                echo $result;
-
-            } catch (PDOException $e) {
-                echo 'Error: ' . $e->getMessage();
-            }
-        }
-    }
-
     private function existMail($email)
     {
         try {
-
             $sql = "SELECT * FROM User WHERE Email = '$email'";
             $result = $this->dbCommand->execute($sql);
             if ($result->num_rows > 0) {
@@ -188,5 +194,48 @@ class UserManager
             echo 'Error: ' . $e->getMessage();
         }
     }
-}
+
+    private function correctPIN($email, $pin)
+    {
+        try {
+            $sql = "SELECT Pin FROM Password_Reset_Pin WHERE User_ID = (SELECT User_ID FROM User u WHERE u.Email = '$email')";
+            $result = $this->dbCommand->execute($sql);
+            $dbPin = mysqli_fetch_row($result);
+            if ($dbPin[0] == $pin) {
+                return true;
+            } else {
+                return false;
+            }
+        } catch (PDOException $e) {
+            echo 'Error: ' . $e->getMessage();
+        }
+    }
+
+    private function generatePin($email)
+    {
+        try {
+            $sql = "SELECT User_ID FROM User WHERE Email = '$email'";
+            $result = $this->dbCommand->execute($sql);
+            $row = mysqli_fetch_assoc($result);
+            $id = $row['User_ID'];
+            $pin = str_pad(random_int(0, 999999), 6, '0', STR_PAD_LEFT);
+            $sql2 = "INSERT INTO Password_Reset_Pin (User_ID, Pin) VALUES ($id, $pin) ON DUPLICATE KEY UPDATE Pin = VALUES(Pin), Created_At = CURRENT_TIMESTAMP";
+            $result2 = $this->dbCommand->execute($sql2);
+
+            return $pin;
+        } catch (PDOException $e) {
+            echo 'Error: ' . $e->getMessage();
+        }
+    }
+
+        private function deletePin($pin)
+    {
+        try {
+            $sql = "DELETE FROM Password_Reset_Pin WHERE Pin = $pin";
+            $this->dbCommand->execute($sql);
+        } catch (PDOException $e) {
+            echo 'Error: ' . $e->getMessage();
+        }
+        }
+    }
 ?>

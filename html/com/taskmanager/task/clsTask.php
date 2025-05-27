@@ -9,7 +9,7 @@ class clsTask
     private $location;
     private $status;
 
-    public function __construct($list_id, $title, $deadline, $description = "", $location = "", $status = "pending", $id = null)
+    public function __construct($title, $deadline, $description = "", $location = "", $status = "pending", $id = 0, $list_id = 0)
     {
         $this->id = $id;
         $this->list_id = $list_id;
@@ -20,17 +20,42 @@ class clsTask
         $this->status = $status;
     }
 
-    public function save()
+    public function save($list_id)
     {
         global $dbCommand;
-        if ($this->id) {
-            $sql = "UPDATE Task SET Title = '$this->title', Description = '$this->description', Deadline = '$this->deadline', Location = '$this->deadline', Status = '$this->status' WHERE Task_ID = '$this->id'";
+        $this->list_id = $list_id;
+        if ($this->id != 0) {
+            $sql = "UPDATE Task SET Title = '$this->title', Description = '$this->description', Deadline = '$this->deadline', Location = '$this->location', Status = '$this->status' WHERE Task_ID = '$this->id'";
             $dbCommand->execute($sql);
         } else {
             $sql = "INSERT INTO Task (List_ID, Title, Description, Deadline, Location) VALUES ('$this->list_id','$this->title','$this->description','$this->deadline','$this->location')";
             $resultid = $dbCommand->insert($sql);
             $this->id = $resultid;
         }
+    }
+
+    public function to_XML($xml)
+    {
+        $root = $xml->createElement("task");
+        $root->appendChild($xml->createElement("task_id", $this->id));
+        $root->appendChild($xml->createElement("list_id", $this->list_id));
+        $root->appendChild($xml->createElement("title", $this->title));
+        $root->appendChild($xml->createElement("description", $this->description));
+        $root->appendChild($xml->createElement("deadline", $this->deadline));
+        $root->appendChild($xml->createElement("location", $this->location));
+        $root->appendChild($xml->createElement("status", $this->status));
+        return $root;
+    }
+
+    public function render_XML()
+    {
+        $xml = new DOMDocument("1.0", "UTF-8");
+        $xml->formatOutput = true;
+        $taskElement = $this->to_XML($xml);
+        $xml->appendChild($taskElement);
+
+        header("Content-Type: application/xml");
+        echo $xml->saveXML();
     }
 
     public function getData()

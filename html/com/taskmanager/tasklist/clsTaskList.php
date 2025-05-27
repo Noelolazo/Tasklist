@@ -3,10 +3,14 @@ class clsTaskList
 {
     private $tasklist;
 
-    public function __construct()
+    public function __construct($load = false)
     {
         $this->tasklist = [];
-        $this->load();
+        if ($load) {
+            $this->load();
+        } else {
+            return;
+        }
     }
 
     public function save()
@@ -14,6 +18,7 @@ class clsTaskList
         foreach ($this->tasklist as $list) {
             $list->save();
         }
+        echo "0";
     }
 
     public function load()
@@ -21,10 +26,12 @@ class clsTaskList
         global $dbCommand;
         global $connection;
         $user_id = $connection->getUser_id();
+        // $sql = "SELECT l.List_ID, l.Title, l.Description
+        //     FROM List l
+        //     JOIN List_User_Access lua ON l.List_ID = lua.List_ID
+        //     WHERE lua.User_ID = '$user_id' AND lua.Status = 'active'";
         $sql = "SELECT l.List_ID, l.Title, l.Description
-            FROM List l
-            JOIN List_User_Access lua ON l.List_ID = lua.List_ID
-            WHERE lua.User_ID = '$user_id' AND lua.Status = 'active'";
+            FROM List l";
         $result = $dbCommand->execute($sql);
         while ($row = mysqli_fetch_row($result)) {
             $list = new clsList($row[1], $row[2], id: $row[0]);
@@ -52,12 +59,49 @@ class clsTaskList
             $result3 = $dbCommand->execute($sql3);
             $tasks = array();
             while ($row3 = mysqli_fetch_row($result3)) {
-                $task = new clsTask($row3[1], $row3[2], $row3[4], $row3[3], $row3[5], $row3[6], $row3[0]);
+                $task = new clsTask($row3[2], $row3[4], $row3[3], $row3[5], $row3[6], $row3[0], $row3[1]);
                 array_push($tasks, $task);
             }
             $list->setTasks($tasks);
             array_push($this->tasklist, $list);
         }
+    }
+
+    public function to_XML()
+    {
+        $xml = new DOMDocument("1.0", "UTF-8");
+        $xml->formatOutput = true;
+
+        $root = $xml->createElement("tasklist");
+        $listsElement = $xml->createElement("lists");
+
+        foreach ($this->tasklist as $list) {
+            $listsElement->appendChild($list->to_XML($xml));
+        }
+
+        $root->appendChild($listsElement);
+        $xml->appendChild($root);
+
+        header("Content-Type: application/xml");
+        echo $xml->saveXML();
+    }
+
+    public function getbyDay($date){
+        $xml = new DOMDocument("1.0", "UTF-8");
+        $xml->formatOutput = true;
+
+        $root = $xml->createElement("tasklist");
+        $listsElement = $xml->createElement("lists");
+
+        foreach ($this->tasklist as $list) {
+            $listsElement->appendChild($list->getbyDay($date, $xml));
+        }
+
+        $root->appendChild($listsElement);
+        $xml->appendChild($root);
+
+        header("Content-Type: application/xml");
+        echo $xml->saveXML();
     }
 
     public function add($list)

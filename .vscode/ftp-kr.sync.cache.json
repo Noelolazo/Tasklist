@@ -73,22 +73,22 @@
     "var": {
       "www": {
         "html": {
-          "index.html": {
+          "home.php": {
             "type": "-",
-            "size": 10671,
+            "size": 996,
             "lmtime": 0,
             "modified": false
           },
-          "pages": {},
-          "CrearTarea.html": {
+          "css": {},
+          "login.php": {
             "type": "-",
-            "size": 3175,
+            "size": 2374,
             "lmtime": 0,
             "modified": false
           },
-          "prueba.php": {
+          ".htaccess": {
             "type": "-",
-            "size": 635,
+            "size": 250,
             "lmtime": 0,
             "modified": false
           },
@@ -110,33 +110,210 @@
                 }
               }
             },
+            "security": {
+              "clsUserManager.php": {
+                "type": "-",
+                "size": 7006,
+                "lmtime": 0,
+                "modified": false
+              },
+              "clsConnection.php": {
+                "type": "-",
+                "size": 3012,
+                "lmtime": 0,
+                "modified": false
+              }
+            },
+            "user": {
+              "clsParticipant.php": {
+                "type": "-",
+                "size": 1497,
+                "lmtime": 1745569498473.8462,
+                "modified": false
+              },
+              "clsUser.php": {
+                "type": "-",
+                "size": 595,
+                "lmtime": 1744286607152.6938,
+                "modified": false
+              }
+            },
+            "info.php": {
+              "type": "-",
+              "size": 181,
+              "lmtime": 1747040032238.5576,
+              "modified": false
+            },
             "taskmanager": {
-              "list": {},
-              "task": {},
-              "tasklist": {}
+              "list": {
+                "clsList.php": {
+                  "type": "-",
+                  "size": 3183,
+                  "lmtime": 1745570694946.871,
+                  "modified": false
+                }
+              },
+              "task": {
+                "clsTask.php": {
+                  "type": "-",
+                  "size": 2708,
+                  "lmtime": 1745568212800.3232,
+                  "modified": false
+                }
+              },
+              "calendar.php": {
+                "type": "-",
+                "size": 6512,
+                "lmtime": 1747040479137.0762,
+                "modified": false
+              },
+              "tasklist": {
+                "clsTaskList.php": {
+                  "type": "-",
+                  "size": 2278,
+                  "lmtime": 1745569418301.4182,
+                  "modified": false
+                }
+              }
+            },
+            "main.php": {
+              "type": "-",
+              "size": 4528,
+              "lmtime": 1747039526460.9724,
+              "modified": false
             }
           },
-          "main.php": {
+          "passwordReset.php": {
             "type": "-",
-            "size": 3809,
+            "size": 1770,
             "lmtime": 0,
             "modified": false
           },
-          "pruebasDB.php": {
+          "PRIMERAS COSAS - MODIFIED (14-05)": {},
+          "js": {
+            "login.js": {
+              "type": "-",
+              "size": 1923,
+              "lmtime": 1747128227076.1575,
+              "modified": false
+            },
+            "clsAJAX.js": {
+              "type": "-",
+              "size": 1849,
+              "lmtime": 1747127876571.663,
+              "modified": false
+            },
+            "clsAjax.js": {
+              "type": "-",
+              "size": 1849,
+              "lmtime": 1747127876571.663,
+              "modified": false
+            },
+            "main.js": {
+              "type": "-",
+              "size": 484,
+              "lmtime": 1747051334125.9048,
+              "modified": false
+            }
+          },
+          "HTDOCS content - MODIFIED (14-05)": {
+            "info.html": {
+              "type": "-",
+              "size": 1549,
+              "lmtime": 0,
+              "modified": false
+            },
+            "calendarPage.php": {
+              "type": "-",
+              "size": 1208,
+              "lmtime": 0,
+              "modified": false
+            },
+            "bitnami.css": {
+              "type": "-",
+              "size": 177,
+              "lmtime": 0,
+              "modified": false
+            },
+            "calendar.css": {
+              "type": "-",
+              "size": 2460,
+              "lmtime": 0,
+              "modified": false
+            },
+            "favicon.ico": {
+              "type": "-",
+              "size": 30894,
+              "lmtime": 0,
+              "modified": false
+            },
+            "groups.php": {
+              "type": "-",
+              "size": 1435,
+              "lmtime": 0,
+              "modified": false
+            },
+            "calendar.php": {
+              "type": "-",
+              "size": 5910,
+              "lmtime": 0,
+              "modified": false
+            },
+            "createTask.php": {
+              "type": "-",
+              "size": 2185,
+              "lmtime": 0,
+              "modified": false
+            },
+            "index.php": {
+              "type": "-",
+              "size": 255,
+              "lmtime": 0,
+              "modified": false
+            },
+            "applications.html": {
+              "type": "-",
+              "size": 3607,
+              "lmtime": 0,
+              "modified": false
+            }
+          },
+          "index.php": {
             "type": "-",
-            "size": 429,
-            "lmtime": 1744019628937.6362,
+            "size": 961,
+            "lmtime": 0,
             "modified": false
           },
+          "dirs.php": {
+            "type": "-",
+            "size": 370,
+            "lmtime": 0,
+            "modified": false
+          },
+          "app": {},
           "info.php": {
             "type": "-",
-            "size": 22,
+            "size": 1546,
+            "lmtime": 1747040032238.5576,
+            "modified": true
+          },
+          "landpage.php": {
+            "type": "-",
+            "size": 1323,
             "lmtime": 0,
             "modified": false
           },
-          "main_bk.php": {
+          "rscrs": {},
+          "CrearTarea.php": {
             "type": "-",
-            "size": 3219,
+            "size": 3173,
+            "lmtime": 0,
+            "modified": false
+          },
+          "test": {},
+          "signUp.php": {
+            "type": "-",
+            "size": 2269,
             "lmtime": 0,
             "modified": false
           }

@@ -75,6 +75,13 @@ class clsConnection
         echo "Date connected:" . $this->date_connected . '<br>';
     }
 
+    public function getUserData()
+    {
+        $xml = $this->user->to_XML(); 
+        header("Content-Type: application/xml");
+        echo $xml->saveXML();
+    }
+
     private function generateUUID()
     {
         return sprintf(
