@@ -21,7 +21,7 @@ $userManager = new clsUserManager($dbCommand);
 // $user = $userManager->login("noel@loquesea.com", 12345);
 // $connection = new clsConnection($user);
 $email = $_GET["email"];
-$userManager->recoverPassword($email);
+$userManager->emailSend($email);
 // $sql = "INSERT INTO usuarios (nombre)
 // VALUES ('Tony')";
 // $sql = "SELECT l.List_ID, l.Title, l.Description

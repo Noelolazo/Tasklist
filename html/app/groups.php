@@ -36,7 +36,31 @@
         <div class="mainContainerGroups">
             <div class="divGroups">
                 <div class="headerDiv">
-                    <div class="headerDot"></div>
+                    <div class="createGroupTitle">
+                        <button class="createGroupButton">
+                            CREATE GROUP
+                        </button>
+                    </div>
+                </div>
+
+                <div class="bottomDiv">
+
+                    <div class="groupLabel">
+                        <label for="groupName" class="label">GROUP NAME</label>
+                        <input type="text">
+                    </div>
+                    <div class="groupLabel"></div>
+                </div>
+            </div>
+
+
+            <div class="divGroups">
+                <div class="headerDiv">
+                    <div class="createGroupTitle">
+                        <button class="createGroupButton">
+                            CREATE GROUP
+                        </button>
+                    </div>
                 </div>
 
                 <div class="bottomDiv">

@@ -9,11 +9,11 @@ document.addEventListener('DOMContentLoaded', function () {
     
         // Crear una instancia de la clase clsAjax
         const AJAX = new clsAjax(url, null);
-    
+
         // Evento que procesará la respuesta después de que se haya recibido
         function handleLogoutResponse() {
             const response = AJAX.response;
-    
+            if(!response || !response.trim().startsWith("<")) return;
             if (response == "Logout successful.") {
                 alert(response);
                 window.location.href = "/";

@@ -101,22 +101,20 @@ if (empty($action)) {
             // var_dump($tasklist);
 
             break;
-        // case "newtask":
-        //     if (!isset($_GET['description'])) {
-        //         $_GET['description'] = NULL;
-        //     }
-        //     if (isset($_COOKIE['connection'])) {
-        //         $connection = unserialize($_COOKIE['connection']);
-        //         $tasklist = new clsTaskList();
-        //         $task = new clsTask($_GET['ttitle'], $_GET['date'], $_GET['tdescription'], $_GET['location']);
-        //         $list = new clsList($_GET['ltitle'], $_GET['ldescription'], [$task], $_GET['participants']);
-        //         $tasklist->add($list);
-        //         $tasklist->save();
-        //         var_dump($tasklist);
-        //     } else {
-        //         echo 'You need to sign in first.';
-        //     }
-        //     break;
+        case "newtask":
+            if (!isset($_GET['description'])) {
+                $_GET['description'] = NULL;
+            }
+            if (isset($_COOKIE['connection'])) {
+                $connection = unserialize($_COOKIE['connection']);
+                $task = new clsTask($_GET['title'], $_GET['deadline'], $_GET['description'], $_GET['location'], $_GET['list_id']);
+                $task->save();
+                echo 'New task created successfuly.';
+                return true;
+            } else {
+                echo 'You need to sign in first.';
+            }
+            break;
         case "invite_user":
             if (isset($_COOKIE['connection'])) {
                 $connection = unserialize($_COOKIE['connection']);
@@ -141,13 +139,6 @@ if (empty($action)) {
             if (isset($_COOKIE["connection"])) {
                 $connection = unserialize($_COOKIE["connection"]);
                 $connection->getUserData();
-            }
-            break;
-        case "viewtask":
-            if (isset($_COOKIE['connection'])) {
-                $connection = unserialize($_COOKIE['connection']);
-                $tasklist = new clsTaskList(true);
-                $tasklist->getbyDay($_GET['date']);
             }
             break;
         default:

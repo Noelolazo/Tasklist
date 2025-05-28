@@ -11,7 +11,14 @@ function closecreatetasklist() {
 
 
 //task
-function opencreatetask() {
+function opencreatetask(id = 0) {
+  
+  if (id != 0){
+    const container = document.querySelector(".inputHiddenId");
+    container.setAttribute('value',$id);
+    container.setAttribute('id','tlist_id')
+  }
+
   document.getElementById('popupcreatetask').style.display = 'block';
   document.getElementById('overlay').style.display = 'block';
 }

@@ -9,7 +9,7 @@
     <script src="/js/main.js"></script>
     <script src="/js/popups.js"></script>
     <script src="/js/create.js"></script>
-    <script src="/js/mytasks.js"></script>
+    <script src="/js/viewtask.js"></script>
 
 </head>
 
@@ -92,6 +92,7 @@
     <div id="popupcreatetask" style="display:none">
         <h2>New Task</h2>
         <form onsubmit="submitnewTask(event)">
+            <input type="hidden" class="inputHiddenId">
             <label>Title:
                 <input type="text" name="ttitle" id="ttitle" required>
             </label>

@@ -1,18 +1,26 @@
-var AJAX;
+var AJAXCreate;
 function submitnewTask() {
   event.preventDefault();
+  const list_id = document.getElementsById("tlist_id").value;
   const title = document.getElementById("ttitle").value;
   const description = document.getElementById("tdescription").value;
   const location = document.getElementById("tlocation").value;
   const deadline = document.getElementById("tdeadline").value;
   // const deadline = convertDate(date);
 
-  localStorage.setItem("ttitle", title);
-  localStorage.setItem("tdescription", description);
-  localStorage.setItem("tlocation", location);
-  localStorage.setItem("tdeadline", deadline);
+  if (list_id != 0) {
+    const url = `http://taskm8/com/main.php?action=newTask&list_id${list_id}&title${title}&description${description}&location${location}&deadline${deadline}`;
+    const AJAXCreate = new clsAJAX(url, null);
+    AJAXCreate.Call();
+  } else {
+    localStorage.setItem("ttitle", title);
+    localStorage.setItem("tdescription", description);
+    localStorage.setItem("tlocation", location);
+    localStorage.setItem("tdeadline", deadline);
 
-  showlocalstorage();
+    showlocalstorage();
+  }
+
 }
 
 function submitnewList() {
@@ -35,8 +43,8 @@ function submitnewList() {
   // Construir la URL para la solicitud GET
   const url = `http://taskm8/com/main.php?action=newlist&ltitle=${(ltitle)}&ldescription=${(ldescription)}&lparticipants=${(lparticipants)}&lgroups=${(lgroups)}&ttitle=${(ttitle)}&tdescription=${(tdescription)}&tlocation=${(tlocation)}&tdeadline=${(tdeadline)}`;
 
-  // Crear una instancia de la clase clsAjax
-  AJAX = new clsAjax(url, null);
+  // Crear una instancia de la clase clsAJAXCreate
+  AJAXCreate = new clsAJAX(url, null);
 
 
 
@@ -45,12 +53,12 @@ function submitnewList() {
   document.removeEventListener("__CALL_RETURNED__", handleResponse);
   document.addEventListener("__CALL_RETURNED__", handleResponse);
 
-  AJAX.Call();
+  AJAXCreate.Call();
 
 }
 
 function handleResponse() {
-  const response = AJAX.response;
+  const response = AJAXCreate.response;
 
   if (response == "0") {
     alert(response);

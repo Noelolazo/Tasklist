@@ -1,4 +1,4 @@
-var XML;
+var XMLmyTask;
 document.addEventListener('DOMContentLoaded', function () {
   const url = `http://taskm8/com/main.php?action=printTaskList`;
 
@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const container = document.querySelector(".taskListParentDiv");
   function printList() {
     const xmlDoc = AJAX.responseXML;
-    XML = AJAX.responseXML;
+    XMLmyTask = AJAX.responseXML;
     // console.log("Texto bruto:", AJAX.response);
     // const xmlDoc = xml.responseXML;
     console.log("XML texto bruto:", xmlDoc);
@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', function () {
         txt += printTask(tasksNode);
       }
 
-      txt += `</div></div>`;
+      txt += `</div><button class='createListButton' onclick='opencreatetask(${list_id})'></div>`;
     }
     container.innerHTML = txt;
     document.removeEventListener("__CALL_RETURNED__", printList);

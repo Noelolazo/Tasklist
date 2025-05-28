@@ -38,31 +38,22 @@
 
         <div class="containerDetailsAndReset">
             <div class="containerReset">
-                <div class="userDetails">
+                <div class="resetPasswordDiv" id="displayInfo"></div>
+                <form method="POST" action="registerUserDelMarc.php">
                     <div class="resetPasswordDiv">
-                        <form>
-                            <label for="username">Username: </label>
-                            <input type="text" id="username" value=><br>
-                            <label for="email">Email: </label>
-                            <input type="text" id="email">
-                        </form>
-                </div>
-            </div>
-            <form method="POST" action="registerUserDelMarc.php">
-                <div class="resetPasswordDiv">
-                    <label>New password:</label>
-                    <input type="text" name="Name" size="50" class="passwordResetTextbox" required>
+                        <label>New password:</label>
+                        <input type="text" name="Name" size="50" class="passwordResetTextbox" required>
 
-                    <label>Confirm password:</label>
-                    <input type="text" name="Email" size="50" class="passwordResetTextbox" required>
+                        <label>Confirm password:</label>
+                        <input type="text" name="Email" size="50" class="passwordResetTextbox" required>
 
-                    <div class="resetButtonDiv">
-                        <input type="submit" class="resetButton" value="SUBMIT">
+                        <div class="resetButtonDiv">
+                            <input type="submit" class="resetButton" value="SUBMIT">
+                        </div>
                     </div>
-                </div>
-            </form>
+                </form>
+            </div>
         </div>
-    </div>
 
 
     </div>

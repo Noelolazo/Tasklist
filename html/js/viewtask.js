@@ -12,10 +12,10 @@ document.addEventListener('DOMContentLoaded', function () {
   formatDate = convertDate(date);
   document.querySelector('.dateButton').textContent = formatDate;
   
-  
   function printList() {
     const xmlDoc = AJAX.responseXML;
     XML = AJAX.responseXML;
+    if(!XML || !XML.trim().startsWith("<")) return;
     // console.log("Texto bruto:", AJAX.response);
     // const xmlDoc = xml.responseXML;
     console.log("XML texto bruto:", xmlDoc);
@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', function () {
         txt += printTask(tasksNode);
       }
 
-      txt += `</div></div>`;
+      txt += `</div><button class='createListButton' onclick='opencreatetask(${list_id})'></div>`;
     }
     container.innerHTML = txt;
     document.removeEventListener("__CALL_RETURNED__", printList);

@@ -1,0 +1,709 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  gap: 0;
+}
+
+:root {
+  --darkBlue: #5a6696;
+  --lightBlue: #99adf9;
+  --gray: #aaa;
+  --white: #e6e9f2;
+}
+
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: var(--white);
+  overflow-y: hidden;
+}
+
+.topbar {
+  background-color: var(--darkBlue);
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.topbar button {
+  background-color: var(--lightBlue);
+  border: none;
+  padding: 10px 20px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: default;
+}
+
+.mercantecLogo {
+  cursor: pointer;
+  height: 100%;
+  width: 100%;
+}
+
+.notification 
+{
+  position: relative;
+  margin-right: 20px;
+}
+
+.circle 
+{
+  width: 50px;
+  height: 50px;
+  background-color: var(--lightBlue);
+  border-radius: 50%;
+  position: relative;
+}
+
+.circle::after {
+  content: '';
+  width: 20px;
+  height: 20px;
+  background-color: red;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.invitationsButton
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  height: 100%;
+  width: 100%;
+  
+}
+
+
+.container {
+  display: flex;
+  height: calc(100vh - 60px);
+}
+
+.sidebar {
+  height: 225px;
+  width: 18%;
+  background-color: var(--gray);
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  bottom: 0;
+}
+
+.sidebar a {
+  background-color: var(--lightBlue);
+  color: black;
+  text-decoration: none;
+  padding: 15px;
+  border: 1px solid;
+  font-size: 18px;
+}
+
+.main {
+  flex: 1;
+  padding: 20px;
+  height: 85%;
+  align-content: center;
+  align-self: center;
+}
+
+.section {
+  background-color: var(--darkBlue);
+  margin-bottom: 45px;
+  height: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.section button {
+  background-color: var(--lightBlue);
+  border: none;
+  padding: 10px 30px;
+  font-size: 18px;
+}
+
+.section2 {
+  background-color: var(--darkBlue);
+  margin-bottom: 45px;
+  height: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.section2 button {
+  background-color: var(--lightBlue);
+  border: none;
+  padding: 10px 30px;
+  font-size: 18px;
+}
+
+
+
+.sidebar {
+  height: auto;
+}
+
+/* STYLE VARIATIONS FOR calendarPage.php  */
+
+.mainOfCalendarPage {
+  display: flex;
+  align-self: center;
+  margin-left: 18%;
+}
+
+
+/* STYLE VARIATIONS FOR myTask.php */
+
+.mainMyTasks {
+  display: flex;
+  height: auto;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.taskMain {
+  display: flex;
+  flex-direction: column;
+  height: 93%;
+  width: 90%;
+  border-style: solid;
+  border-color: var(--darkBlue);
+  border-width: 20px;
+  justify-content: center;
+  row-gap: 15px;
+  align-items: center;
+  padding: 10px;
+}
+
+.invitationsTitle {
+  display: flex;
+  height: 70px;
+  max-width: 140px;
+  align-items: center;
+  background-color: var(--lightBlue);
+  font-weight: bolder;
+  padding: 5px 10px;
+}
+
+.taskDiv {
+  display: flex;
+  border-style: solid;
+  height: 93%;
+  width: 95%;
+  border-width: 2px;
+  border-color: var(--lightBlue);
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.acceptDecline {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-self: center;
+  height: 80%;
+  width: 20%;
+  margin-right: 15px;
+  justify-content: space-between;
+  font-size: large;
+}
+
+.acceptButton {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  padding: 7px 7px;
+  background-color: var(--darkBlue);
+  height: 40%;
+  font-weight: bolder;
+  color: var(--lightBlue);
+  font-size: large;
+}
+
+.acceptButton:hover {
+  color: var(--darkBlue);
+  font-weight: bolder;
+  font-size: large;
+  border-width: 10px;
+  border-color: var(--lightBlue);
+  background-color: #8aa1fc;
+}
+
+.declineButton {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  padding: 7px 7px;
+  background-color: var(--darkBlue);
+  height: 40%;
+  font-weight: bolder;
+  color: var(--white);
+  font-size: large;
+}
+
+.declineButton:hover {
+  color: white;
+  font-weight: bolder;
+  font-size: large;
+  border-width: 10px;
+  border-color: red;
+  background-color: rgb(221, 78, 102);
+}
+
+/* STYLE VARIATIONS FOR createTask.php */
+
+.mainCreateTask {
+  display: flex;
+  height: 100%;
+  width: 82%;
+  justify-content: center;
+  align-items: center;
+}
+
+.parentDiv {
+  display: flex;
+  border-style: solid;
+  border-width: 20px;
+  border-color: var(--darkBlue);
+  height: 90%;
+  width: 80%;
+  flex-direction: column;
+}
+
+.dateCreateDiv {
+  display: flex;
+  border-style: solid;
+  border-width: 0px 0px 10px;
+  border-color: var(--darkBlue);
+  height: 15%;
+  width: 100%;
+  align-items: center;
+}
+
+.dateButtonDiv {
+  display: flex;
+  height: 65%;
+  width: 25%;
+  margin-left: 3%;
+}
+
+.dateButton {
+  height: 100%;
+  width: 100%;
+  border-style: solid;
+  border-width: 2px;
+  border-color: var(--darkBlue);
+  background-color: var(--lightBlue);
+}
+
+.createListDiv {
+  display: flex;
+  height: 65%;
+  width: 25%;
+  margin-left: 42%;
+}
+
+.createListButton {
+  height: 100%;
+  width: 100%;
+  border-style: solid;
+  border-width: 2px;
+  border-color: var(--darkBlue);
+  background-color: var(--lightBlue);
+}
+
+.wideAndNarrowDiv {
+  display: flex;
+  justify-content: column;
+  min-height: 85%;
+  width: 100%;
+
+}
+
+.whideDiv {
+  display: flex;
+  border-style: solid;
+  border-width: 0px 10px 0px 0px;
+  border-color: var(--darkBlue);
+  height: 100%;
+  width: 65%;
+  align-items: center;
+}
+
+.taskListParentDiv {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  height: 90%;
+  width: 100%;
+  column-gap: 5%;
+
+}
+
+.taskList {
+  display: flex;
+  border-style: solid;
+  border-width: 50px 15px 15px 15px;
+  border-color: var(--lightBlue);
+  height: 70%;
+  width: 45%;
+  margin-top: 10%;
+  justify-content: center;
+}
+
+.singleTask {
+  display: flex;
+  align-items: center;
+  margin-top: 10%;
+  height: 20%;
+  width: 90%;
+  background-color: var(--darkBlue);
+}
+
+.checkboxDiv {
+  margin-left: 5%;
+  height: 40%;
+  width: 10%;
+  border-radius: 90px;
+}
+
+.checkboxClass {
+  appearance: none;
+  border-style: solid;
+  border-width: 0.2px;
+  border-color: var(--lightBlue);
+  background-color: var(--gray);
+  height: 100%;
+  width: 100%;
+  border-radius: 15px;
+}
+
+.checkboxClass:checked {
+  border-style: solid;
+  border-width: 1px;
+  border-color: var(--lightBlue);
+  background-color: lightgreen;
+  height: 100%;
+  width: 100%;
+  border-radius: 15px;
+}
+
+.narrowDiv {
+  height: 100%;
+  width: 35%;
+  justify-items: center;
+  margin-top: 5%;
+}
+
+.createSingleTask {
+  border-style: solid;
+  border-color: var(--darkBlue);
+  border-width: 2px;
+  height: 15%;
+  width: 80%;
+}
+
+/* MYROFILE.PHP styles additions*/
+.containerReset
+{
+    display: flex;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.resetPasswordDiv {
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-self: center;
+  background-color: var(--lightBlue);
+  margin-top: 8%;
+  margin-bottom: 2%;
+  width: auto;
+  height: auto;
+  padding: 3%;
+  border-radius: 12px;
+}
+
+.passwordResetTextbox {
+  min-height: 36px;
+  margin-bottom: 5%;
+}
+
+.resetButtonDiv {
+  align-items: center;
+  display: flex;
+  justify-self: center;
+  align-self: center;
+  min-height: 15%;
+  min-width: 250px;
+  border-radius: 12px;
+  background-color: var(--medium);
+  border-style: solid;
+  border-color: var(--dark);
+}
+
+.resetButton {
+  font-size: larger;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  background-color: var(--medium);
+  font-weight: normal;
+  border-radius: 12px;
+  border-width: 0;
+  color: black;
+}
+
+.resetButton:hover {
+  background-color: var(--light);
+  color: white;
+  font-weight: bold;
+}
+
+
+
+/* MYROFILE.PHP styles additions*/
+
+.mainContainerGroups
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+.divGroups
+{
+  display: flex;
+  border-style: solid;
+  border-width: 20px;
+  border-color: var(--darkBlue);
+  height: 90%;
+  width: 80%;
+  flex-direction: column;
+}
+
+.headerDiv
+{
+  display: flex;
+  height: 20%;
+  border-style: solid;
+  border-width: 0px 0px 15px 0px;
+  border-color: var(--darkBlue);
+  align-items: center;
+}
+
+.headerDot 
+{
+  background-color: var(--darkBlue);
+  margin-left: 5%;
+  height: 40%;
+  width: 4.1%;
+  border-radius: 90px;
+}
+
+
+.bottomDiv
+{ 
+  height: 80%;
+  row-gap: 5%;
+  justify-items: center;
+}
+
+.groupLabel
+{
+  height: 10%;
+  width: 95%;
+  background-color: var(--lightBlue);
+  margin-top: 3%;
+}
+
+
+/* popup css*/
+
+#popupcreatetasklist {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--white); /* Usa tu variable */
+  padding: 30px 25px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3); /* Sombra más suave y elegante */
+  z-index: 1000;
+  border-radius: 15px; /* Bordes más redondeados */
+  width: 400px; /* Más espacio visual */
+  border: 4px solid var(--darkBlue); /* Contorno con color principal */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  font-family: Arial, sans-serif;
+}
+
+#popupcreatetasklist h2 {
+  color: var(--darkBlue);
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+#popupcreatetasklist input,
+#popupcreatetasklist textarea {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid var(--lightBlue);
+  border-radius: 6px;
+  font-size: 16px;
+  background-color: #fff;
+}
+
+#popupcreatetasklist button {
+  background-color: var(--lightBlue);
+  color: black;
+  padding: 10px 20px;
+  font-weight: bold;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+#popupcreatetasklist button:hover {
+  background-color: #8aa1fc; /* tono intermedio del azul claro */
+}
+
+#popupcreatetask {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--white); /* Usa tu variable */
+  padding: 30px 25px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3); /* Sombra más suave y elegante */
+  z-index: 1000;
+  border-radius: 15px; /* Bordes más redondeados */
+  width: 400px; /* Más espacio visual */
+  border: 4px solid var(--darkBlue); /* Contorno con color principal */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  font-family: Arial, sans-serif;
+}
+
+#popupcreatetask h2 {
+  color: var(--darkBlue);
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+#popupcreatetask input,
+#popupcreatetask textarea {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid var(--lightBlue);
+  border-radius: 6px;
+  font-size: 16px;
+  background-color: #fff;
+}
+
+#popupcreatetask button {
+  background-color: var(--lightBlue);
+  color: black;
+  padding: 10px 20px;
+  font-weight: bold;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+#popupcreatetask button:hover {
+  background-color: #8aa1fc; /* tono intermedio del azul claro */
+}
+
+.hidden {
+  display: none !important;
+}
+
+#popupTaskDetailMini {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.4);
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.popup-mini {
+  background: #e8ecf7;
+  border-radius: 12px;
+  padding: 20px;
+  width: 300px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.popup-mini h2 {
+  margin-top: 0;
+  color: #3c4a7d;
+}
+
+.popup-mini input,
+.popup-mini textarea {
+  width: 100%;
+  padding: 8px;
+  border: 2px solid #aac4f6;
+  border-radius: 6px;
+  background-color: white;
+  font-size: 14px;
+}
+
+.popup-mini-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  gap: 8px;
+}
+
+.popup-mini-buttons button {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.popup-mini-buttons .accept {
+  background-color: #aac4f6;
+  color: #000;
+}
+
+.popup-mini-buttons .cancel {
+  background-color: #d3d8ea;
+  color: #000;
+}

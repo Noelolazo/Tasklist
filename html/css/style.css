@@ -452,9 +452,16 @@ body {
   width: 80%;
 }
 /* MYROFILE.PHP styles additions*/
+.containerDetailsAndReset
+{
+  display: flex;
+  justify-items: center;
+  width: 100%;
+}
 .containerReset
 {
     display: flex;
+    flex-direction: column;
     height: 100%;
     width: 100%;
     justify-content: center;
@@ -467,8 +474,8 @@ body {
   flex-direction: column;
   justify-self: center;
   background-color: var(--lightBlue);
-  margin-top: 8%;
-  margin-bottom: 2%;
+  margin-top: 5%;
+  margin-bottom: 1%;
   width: auto;
   height: auto;
   padding: 3%;
@@ -756,3 +763,12 @@ body {
   background-color: #d3d8ea;
   color: #000;
 }
+
+.resetPasswordDiv > p{
+  background-color: var(--white);
+    border: 1px solid var(--gray);
+    padding: 5px;
+    width: 300px;
+    margin-bottom: 5%;
+}
+

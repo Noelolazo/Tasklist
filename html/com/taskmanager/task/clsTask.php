@@ -9,7 +9,7 @@ class clsTask
     private $location;
     private $status;
 
-    public function __construct($title, $deadline, $description = "", $location = "", $status = "pending", $id = 0, $list_id = 0)
+    public function __construct($title, $deadline, $description = "", $location = "", $list_id = 0, $status = "pending", $id = 0)
     {
         $this->id = $id;
         $this->list_id = $list_id;
@@ -20,10 +20,9 @@ class clsTask
         $this->status = $status;
     }
 
-    public function save($list_id)
+    public function save()
     {
         global $dbCommand;
-        $this->list_id = $list_id;
         if ($this->id != 0) {
             $sql = "UPDATE Task SET Title = '$this->title', Description = '$this->description', Deadline = '$this->deadline', Location = '$this->location', Status = '$this->status' WHERE Task_ID = '$this->id'";
             $dbCommand->execute($sql);
