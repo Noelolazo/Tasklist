@@ -42,6 +42,9 @@
     <div class="homeContainer">
         <div class="homeMainDiv">
             <div class="homeRectangle">
+                <h1>TASK MANAGER<br></h1>
+                <h1><h2>Welcome to taskm8 – Your simple, smart, <br>and shared to-do list.</h2></h1>
+                <p>Create tasks, set deadlines, and collaborate<br> in groups. Stay on top of your day with our <br> built-in calendar view. Organizing your life has <br> never been easier.</p>
             </div>
             <div class="circleHome">
 

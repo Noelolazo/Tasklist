@@ -414,6 +414,8 @@ footer {
 .homeRectangle
 {
     display: flex;
+    flex-wrap: wrap;
+    padding: 5%;
     height: 85%;
     width: 100%;
     background-color: var(--light);
@@ -439,3 +441,19 @@ footer {
     width: 40%;
     border-radius: 8px;
 }
+
+.homeRectangle > h1{
+    color: white;
+    font-size: 3em;
+}
+
+.homeRectangle > h2{
+    color: white;
+    font-size: 2em;
+}
+
+.homeRectangle > p{
+    color: whitesmoke;
+    font-size: 1.5em;
+}
+
